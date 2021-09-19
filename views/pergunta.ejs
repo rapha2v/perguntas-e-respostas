@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %> <!-- Importando header --> 
+<%- include("partials/navbar.ejs") %> <!-- Importando navbar --> 
+<div class="container p-5">
+    <h1> <%= pergunta.title %> </h1>
+    <p> <%= pergunta.question %> </p>
+
+    <form action="/saveResponse" method="post">
+        <h3 class="mb-4">Respostas</h3>
+        <label for="response">Resposta:</label>
+        <textarea name="response" id="response" cols="30" rows="5" class="form-control mb-3"></textarea>
+        <input name="idQuestion" type="text" value=" <%= pergunta.id %> " hidden>
+        <button class="btn btn-success" type="submit">Responder</button>
+    </form>
+
+    <% if(resposta != undefined){ %>
+        <% resposta.forEach(res => { %>
+        <div class="card w-100 my-5">
+            <div class="card-body" style="color: #333">
+                <%= res.resposta %>
+            </div>
+        </div>
+        <% });%>
+    <% } %>
+</div>
+<%- include("partials/footer.ejs") %> <!-- Importando footer --> 

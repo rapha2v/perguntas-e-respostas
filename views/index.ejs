@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %> <!-- Importando header --> 
+<%- include("partials/navbar.ejs") %> <!-- Importando navbar --> 
+
+<div class="container p-5">
+    <h1 class="text-center mb-4">Lista de perguntas</h1>
+    <% perguntas.forEach(pergunta => { %>
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <h5 style="color: #333333;">
+                        <%= pergunta.title %>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-success" href="/pergunta/<%= pergunta.id %>">Responder</a>
+        </div>
+    </div>
+
+    <% }) %>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {});
+</script>
+<%- include("partials/footer.ejs") %> <!-- Importando footer --> 
